@@ -18,6 +18,7 @@ class UsersController(
 }
 
 data class CreateUserRequest(
+
     var name: String,
     var age: Int
 
