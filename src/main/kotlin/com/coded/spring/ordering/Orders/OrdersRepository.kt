@@ -1,6 +1,8 @@
-package com.coded.spring.ordering
+package com.coded.spring.ordering.Orders
 
 
+import com.coded.spring.ordering.items.ItemEntity
+import com.coded.spring.ordering.users.UserEntity
 import jakarta.inject.Named
 import jakarta.persistence.*
 import org.springframework.data.jpa.repository.JpaRepository
@@ -14,9 +16,14 @@ data class OrderEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-    var name: String,
-    var restaurant:String,
-    var items:Array<String>
-){
-    constructor() : this(null, "","", emptyArray<String>())
+
+    @ManyToOne
+    val user: UserEntity,
+
+//    @OneToMany(mappedBy = "order_id")
+//    val items: List<ItemEntity>? = null
+
+
+    ){
+    constructor() : this(null, UserEntity())
 }

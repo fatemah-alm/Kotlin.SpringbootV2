@@ -1,4 +1,4 @@
-package com.coded.spring.ordering
+package com.coded.spring.ordering.Orders
 
 
 import org.springframework.web.bind.annotation.GetMapping
@@ -8,18 +8,21 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class OnlineOrderController(
-    private val ordersRepository: OrdersRepository
+    private val ordersService: OrdersService,
+
 ){
     @GetMapping("/home")
     fun onlineOrder() =  "Start Ordering Food!"
 
+    @GetMapping("/orders/v1/orders")
+    fun getOrders(): List<Order> = ordersService.listOrders()
+
     @PostMapping("/orders")
-    fun orderFood(@RequestBody request: OrderFoodRequest) = ordersRepository.save(OrderEntity(name = request.name, restaurant=request.restaurant, items=request.items))
+    fun orderFood(@RequestBody request: CreateOrderRequest) = ordersService.createOrder(request.userId)
 
 }
 
-data class OrderFoodRequest(
-    val name: String,
-    val restaurant: String,
-    val items: Array<String>
+data class CreateOrderRequest(
+    val userId: Long
+
 )
