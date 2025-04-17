@@ -14,20 +14,22 @@ class OrdersService(
 
     fun listOrders(): List<Order> = ordersRepository.findAll().map {
         Order(
-            user = it.user,
+            userId = it.user.id,
+            restaurant = it.restaurant
         )
     }
 
 
-    fun createOrder(userId: Long){
+    fun createOrder(userId: Long,restaurant:String){
         val user = usersRepository.findById(userId).get()
-        val newOrder = OrderEntity(user=user)
+        val newOrder = OrderEntity(user=user, restaurant = restaurant)
         ordersRepository.save(newOrder)
     }
     }
 
 
 data class Order(
-    val user: UserEntity,
+    val userId: Long?,
+    val restaurant: String
 
 )

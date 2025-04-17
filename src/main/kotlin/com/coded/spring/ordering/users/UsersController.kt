@@ -14,13 +14,15 @@ class UsersController(
     fun getUsers() = usersService.listUsers()
 
     @PostMapping("/users")
-    fun createUser(@RequestBody request: CreateUserRequest) = usersService.createUser(request.name,request.age)
+    fun createUser(@RequestBody request: CreateUserRequest) = usersService.createUser(request.name,request.age,request.username,request.password)
 }
 
 data class CreateUserRequest(
 
     var name: String,
-    var age: Int
+    var age: Int,
+    var username:String,
+    var password:String
 
 )
 

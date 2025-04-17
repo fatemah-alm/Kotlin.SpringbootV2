@@ -17,12 +17,13 @@ class OnlineOrderController(
     @GetMapping("/orders/v1/orders")
     fun getOrders(): List<Order> = ordersService.listOrders()
 
-    @PostMapping("/orders")
-    fun orderFood(@RequestBody request: CreateOrderRequest) = ordersService.createOrder(request.userId)
+    @PostMapping("/orders/v1/orders")
+    fun orderFood(@RequestBody request: CreateOrderRequest) = ordersService.createOrder(request.userId,request.restaurant)
 
 }
 
 data class CreateOrderRequest(
-    val userId: Long
+    val userId: Long,
+    val restaurant:String,
 
 )

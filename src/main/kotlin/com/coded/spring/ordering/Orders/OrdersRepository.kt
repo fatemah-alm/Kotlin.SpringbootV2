@@ -19,11 +19,12 @@ data class OrderEntity(
 
     @ManyToOne
     val user: UserEntity,
+    val restaurant:String,
 
-//    @OneToMany(mappedBy = "order_id")
+//    @OneToMany(mappedBy = "orderId")
 //    val items: List<ItemEntity>? = null
 
 
     ){
-    constructor() : this(null, UserEntity())
+    constructor() : this(null, UserEntity(),"")
 }

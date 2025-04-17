@@ -16,9 +16,9 @@ class UserService(
         )
     }
 
-    fun createUser(name: String,age:Int){
+    fun createUser(name: String,age:Int, username:String,password:String){
 
-        val newUser = UserEntity( name=name, age=age)
+        val newUser = UserEntity( name=name, age=age, username = username,password=password)
         userRepository.save(newUser)
     }
 
