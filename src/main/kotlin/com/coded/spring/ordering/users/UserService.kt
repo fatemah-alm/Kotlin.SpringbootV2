@@ -1,6 +1,5 @@
 package com.coded.spring.ordering.users
 
-import com.coded.spring.ordering.Orders.OrderEntity
 import jakarta.inject.Named
 import org.springframework.security.crypto.password.PasswordEncoder
 

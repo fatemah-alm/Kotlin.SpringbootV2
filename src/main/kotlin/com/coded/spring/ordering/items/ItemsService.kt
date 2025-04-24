@@ -12,10 +12,7 @@ class ItemsService(
     private val ordersRepository: OrdersRepository
 ) {
 
-//    fun listItems(orderId: Long): List<Item> {
-//        val order = ordersRepository.findById(orderId).get()
-//        return itemsRepository.findByOrder(order)
-//    }
+
 
     fun addItem( orderId: Long,name: String,quantity: Int){
         val order = ordersRepository.findById(orderId).get()

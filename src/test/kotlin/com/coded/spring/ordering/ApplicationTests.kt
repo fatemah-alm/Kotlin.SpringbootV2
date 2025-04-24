@@ -1,5 +1,6 @@
 package com.coded.spring.ordering
 
+
 import com.coded.spring.ordering.authentication.jwt.JwtService
 import com.coded.spring.ordering.menu.Menu
 import com.coded.spring.ordering.users.UserEntity
@@ -64,6 +65,9 @@ class ApplicationTests {
 		assertEquals(expected = emptyList<Menu>(), actual = result.body, message = "output equals menu list")
 
 	}
+
+
+
 
 
 

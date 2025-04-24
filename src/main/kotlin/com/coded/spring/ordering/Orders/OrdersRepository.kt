@@ -1,7 +1,6 @@
 package com.coded.spring.ordering.Orders
 
 
-import com.coded.spring.ordering.items.ItemEntity
 import com.coded.spring.ordering.users.UserEntity
 import jakarta.inject.Named
 import jakarta.persistence.*
