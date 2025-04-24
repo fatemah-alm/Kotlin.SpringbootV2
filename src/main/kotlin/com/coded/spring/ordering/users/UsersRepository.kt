@@ -20,7 +20,15 @@ data class UserEntity(
     var name: String,
     var age: Int,
     var username:String,
-    var password:String
+    var password:String,
+
+    @Enumerated(EnumType.STRING)
+    val role: Roles = Roles.USER
+
 ){
-    constructor() : this(null, "",0,"","")
+    constructor() : this(null, "",0,"","",)
+}
+
+enum class Roles {
+    USER, ADMIN
 }
